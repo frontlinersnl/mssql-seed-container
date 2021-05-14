@@ -1,0 +1,21 @@
+{
+    "name": "mssql-seed-container",
+    "version": "1.0.0",
+    "description": "[![logo](./logo.jpg)](https://inforit.nl)",
+    "main": "Dockerfile",
+    "scripts": {
+      "build": "docker build -t inforitnl/mssql-seed .",
+      "tag": "docker tag inforitnl/mssql-seed",
+      "push": "docker push inforitnl/mssql-seed"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:Inforitnl/mssql-seed-container.git"
+    },
+    "author": "Pascal Slegtenhorst <pslegtenhorst@inforit.nl>",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Inforitnl/mssql-seed-container/issues"
+    },
+    "homepage": "https://github.com/Inforitnl/mssql-seed-container#readme"
+  }
