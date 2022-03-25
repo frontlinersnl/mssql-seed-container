@@ -1,4 +1,6 @@
 #!/bin/bash
+#set -euo pipefail
+PATH="/opt/mssql-tools/bin:$PATH"
 
 # Environmentals
 # Optional:

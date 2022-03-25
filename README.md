@@ -11,7 +11,7 @@ This container enables someone to seed a Microsoft SQL database given \*.sql see
 Every seed file ending in .sql will be picked up in alphabetical order from the main working directory.
 All you have to do is add them in the base container :)
 
-```
+```sh
 FROM inforitnl/mssql-seed
 COPY ./seed-files .
 ```
@@ -25,7 +25,6 @@ services:
   seed:
     image: seed-container-name
     container_name: seed-container-name
-    # this host works for Windows by default.. that's why I chose this
     hostname: host.docker.internal
     environment:
       SQL_DATABASE: "database-to-seed"
@@ -33,7 +32,7 @@ services:
     # windows users: comment out extra_hosts section
     # linux/mac/wsl users: make sure the extra_hosts section ISN'T commented out
     extra_hosts:
-      host.docker.internal: 172.17.0.1
+      host.docker.internal: 192.168.65.2
 
 ```
 
@@ -68,3 +67,24 @@ services:
    docker tag inforitnl/mssql-seed inforitnl/mssql-seed:1.0.0
    docker push inforitnl/mssql-seed:1.0.0
    ```
+
+## how to test
+
+1. Build test container
+
+   ```sh
+   docker build -t inforitnl/mssql-seed-test ./test
+   ```
+
+2. Run `docker-compose up` to start a sql server instance.
+3. Run the seed test container using:
+
+   ```sh
+   docker run \
+     -e SQL_DATABASE="test" \
+     --network="host" \
+     inforitnl/mssql-seed-test
+
+   ```
+
+As a result both the database (`test`) and table (`Example`) has been created and the table is filled with 5 example records.
