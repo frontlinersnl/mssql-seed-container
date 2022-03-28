@@ -29,10 +29,11 @@ services:
     environment:
       SQL_DATABASE: "database-to-seed"
 
-    # windows users: comment out extra_hosts section
-    # linux/mac/wsl users: make sure the extra_hosts section ISN'T commented out
     extra_hosts:
-      host.docker.internal: 192.168.65.2
+      # linux/mac users: next line only works for you.
+      host.docker.internal: 172.17.0.1
+      # windows users: comment out next line and comment previous line.
+      #host.docker.internal: 192.168.65.2
 
 ```
 
