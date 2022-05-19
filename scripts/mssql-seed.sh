@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# get the directory of the file no matter where it's called from
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+if [[ -n "${SQL_CONNECTION_STRING}" ]]; then
+    source "$DIR/parse-connectionstring.sh";
+fi
+
 # Environmentals
 # Optional:
 SQL_HOST="${SQL_HOST:-"127.0.0.1"}"

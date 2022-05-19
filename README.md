@@ -41,6 +41,7 @@ services:
 
 | Variable                 | Purpose                                                                                      |
 | ------------------------ | -------------------------------------------------------------------------------------------- |
+| SQL_CONNECTION_STRING    | SQL connection string. When provided it ignores the parameters listed below.                 |
 | SQL_HOST                 | Host to connect to (defaults to `127.0.0.1`)                                                 |
 | SQL_PORT                 | Port number to connect to (defaults to `1433`).                                              |
 | SQL_USERNAME             | username (defaults to `sa`)                                                                  |
