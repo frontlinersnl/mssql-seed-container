@@ -1,4 +1,6 @@
 #!/bin/bash
+#set -euo pipefail
+PATH="/opt/mssql-tools/bin:$PATH"
 
 # get the directory of the file no matter where it's called from
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"

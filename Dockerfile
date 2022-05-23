@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/mssql-tools
 WORKDIR /tmp/mssqlseed
-COPY ./scripts .
-RUN chmod +x ./mssql-seed.sh
-CMD [ "./mssql-seed.sh" ]
+COPY ./scripts/mssql-seed.sh /opt/mssql-seed.sh
+RUN chmod +x /opt/mssql-seed.sh
+CMD [ "/opt/mssql-seed.sh" ]
