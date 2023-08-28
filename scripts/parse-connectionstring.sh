@@ -16,11 +16,11 @@ do
         SQL_HOST=${serverKeyValue[0]}
         SQL_PORT=${serverKeyValue[1]}
     fi
-    if [ "${sectionKeyValue[0]}" = "database" ]; then
+    if [ "${sectionKeyValue[0]}" = "database" ] || [ "${sectionKeyValue[0]}" = "initial catalog" ]; then
         SQL_DATABASE=${sectionKeyValue[1]}
     fi
-    if [ "${sectionKeyValue[0]}" = "user" ]; then
-        SQL_USER=${sectionKeyValue[1]}
+    if [ "${sectionKeyValue[0]}" = "user" ] || [ "${sectionKeyValue[0]}" = "user id" ]; then
+        SQL_USERNAME=${sectionKeyValue[1]}
     fi
     if [ "${sectionKeyValue[0]}" = "password" ]; then
         SQL_PASSWORD=${sectionKeyValue[1]}
@@ -30,5 +30,5 @@ done
 export SQL_HOST
 export SQL_PORT
 export SQL_DATABASE
-export SQL_USER
+export SQL_USERNAME
 export SQL_PASSWORD
