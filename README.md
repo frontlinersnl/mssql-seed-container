@@ -16,6 +16,11 @@ FROM inforitnl/mssql-seed
 COPY ./seed-files .
 ```
 
+#### Note
+
+For the scripts that are ran the following option is enabled by default: `sqlcmd -I`.
+This sets the `SET QUOTED_IDENTIFIER` connection option to `ON`. By default, it's set to `OFF`. For more information, see [SET QUOTED_IDENTIFIER (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-quoted-identifier-transact-sql?view=sql-server-ver16).
+
 ### use your container in compose files
 
 ```sh
@@ -30,10 +35,7 @@ services:
       SQL_DATABASE: "database-to-seed"
 
     extra_hosts:
-      # linux/mac users: next line only works for you.
-      host.docker.internal: 172.17.0.1
-      # windows users: comment out next line and comment previous line.
-      #host.docker.internal: 192.168.65.2
+      - host.docker.internal:host-gateway
 
 ```
 

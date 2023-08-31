@@ -35,7 +35,7 @@ fi
 # Execute each file in working dir in aphabetical order.
 for currentFile in $(ls | sort | grep .sql); do
     echo "Processing ${currentFile}"
-    sqlcmd \
+    sqlcmd -I\
         -S "$SQL_HOST,$SQL_PORT" \
         -U "$SQL_USERNAME" \
         -P "$SQL_PASSWORD" \
