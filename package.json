@@ -1,6 +1,6 @@
 {
     "name": "mssql-seed-container",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "[![logo](./logo.jpg)](https://inforit.nl)",
     "main": "Dockerfile",
     "scripts": {
